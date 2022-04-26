@@ -1,6 +1,6 @@
-const classes = require("../lib/employee");
+const Engineer = require("../lib/engineer");
 
-describe("Employee", () => {
+describe("Engineer", () => {
     describe("Has default properties", () => {
         it("should have '' as a name property", () => {
             const expected = "";

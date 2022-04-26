@@ -1,11 +1,11 @@
-const classes = require("../lib/employee");
+const Manager = require("../lib/manager");
 
-describe("Employee", () => {
+describe("Manager", () => {
     describe("Has default properties", () => {
         it("should have '' as a name property", () => {
             const expected = "";
 
-            const testEmp = new classes.Manager();
+            const testEmp = new Manager();
 
             expect(testEmp.name).toEqual(expected);
         });
@@ -13,7 +13,7 @@ describe("Employee", () => {
         it("should have a default id of 0", () => {
             const expected = 0;
 
-            const testEmp = new classes.Manager();
+            const testEmp = new Manager();
 
             expect(testEmp.id).toEqual(expected);
         });
@@ -21,17 +21,17 @@ describe("Employee", () => {
         it("should have a default email of ''", () => {
             const expected = "";
 
-            const testEmp = new classes.Manager();
+            const testEmp = new Manager();
 
             expect(testEmp.email).toEqual(expected);
         });
 
         it("should have a default school of ''", () => {
-            const expected = "";
+            const expected = 0;
 
-            const testEmp = new classes.Manager();
+            const testEmp = new Manager();
 
-            expect(testEmp.school).toEqual(expected);
+            expect(testEmp.officeNum).toEqual(expected);
         });
 
         it("should be able to change it's values", () => {
@@ -42,7 +42,7 @@ describe("Employee", () => {
                 officeNum: 265
             };
 
-            const testEmp = new classes.Manager();
+            const testEmp = new Manager();
             testEmp.name = "Test Name";
             testEmp.id = 2;
             testEmp.email = "test@fakeEmail.com";
@@ -54,7 +54,7 @@ describe("Employee", () => {
         it("should return 'Engineer' with the getRole method", () => {
             const expected = "Manager";
 
-            const testEmp = new classes.Manager();
+            const testEmp = new Manager();
 
             expect(testEmp.getRole()).toEqual(expected);
         });

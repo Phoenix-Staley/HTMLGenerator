@@ -1,11 +1,11 @@
-const classes = require("../lib/employee");
+const Intern = require("../lib/intern");
 
-describe("Employee", () => {
+describe("Intern", () => {
     describe("Has default properties", () => {
         it("should have '' as a name property", () => {
             const expected = "";
 
-            const testEmp = new classes.Intern();
+            const testEmp = new Intern();
 
             expect(testEmp.name).toEqual(expected);
         });
@@ -13,7 +13,7 @@ describe("Employee", () => {
         it("should have a default id of 0", () => {
             const expected = 0;
 
-            const testEmp = new classes.Intern();
+            const testEmp = new Intern();
 
             expect(testEmp.id).toEqual(expected);
         });
@@ -21,7 +21,7 @@ describe("Employee", () => {
         it("should have a default email of ''", () => {
             const expected = "";
 
-            const testEmp = new classes.Intern();
+            const testEmp = new Intern();
 
             expect(testEmp.email).toEqual(expected);
         });
@@ -29,7 +29,7 @@ describe("Employee", () => {
         it("should have a default school of ''", () => {
             const expected = "";
 
-            const testEmp = new classes.Intern();
+            const testEmp = new Intern();
 
             expect(testEmp.school).toEqual(expected);
         });
@@ -42,11 +42,11 @@ describe("Employee", () => {
                 school: "Brainville University"
             };
 
-            const testEmp = new classes.Intern();
+            const testEmp = new Intern();
             testEmp.name = "Test Name";
             testEmp.id = 2;
             testEmp.email = "test@fakeEmail.com";
-            testEmp.github = "Brainville University";
+            testEmp.school = "Brainville University";
 
             expect(testEmp).toEqual(expected);
         });
@@ -54,7 +54,7 @@ describe("Employee", () => {
         it("should return 'Engineer' with the getRole method", () => {
             const expected = "Intern";
 
-            const testEmp = new classes.Intern();
+            const testEmp = new Intern();
 
             expect(testEmp.getRole()).toEqual(expected);
         });
