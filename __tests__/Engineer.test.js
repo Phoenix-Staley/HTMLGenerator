@@ -5,7 +5,7 @@ describe("Employee", () => {
         it("should have '' as a name property", () => {
             const expected = "";
 
-            const testEmp = new classes.Engineer();
+            const testEmp = new Engineer();
 
             expect(testEmp.name).toEqual(expected);
         });
@@ -13,7 +13,7 @@ describe("Employee", () => {
         it("should have a default id of 0", () => {
             const expected = 0;
 
-            const testEmp = new classes.Engineer();
+            const testEmp = new Engineer();
 
             expect(testEmp.id).toEqual(expected);
         });
@@ -21,7 +21,7 @@ describe("Employee", () => {
         it("should have a default email of ''", () => {
             const expected = "";
 
-            const testEmp = new classes.Engineer();
+            const testEmp = new Engineer();
 
             expect(testEmp.email).toEqual(expected);
         });
@@ -29,7 +29,7 @@ describe("Employee", () => {
         it("should have a default github username of ''", () => {
             const expected = "";
 
-            const testEmp = new classes.Engineer();
+            const testEmp = new Engineer();
 
             expect(testEmp.github).toEqual(expected);
         })
@@ -42,7 +42,7 @@ describe("Employee", () => {
                 github: "test-username"
             };
 
-            const testEmp = new classes.Engineer();
+            const testEmp = new Engineer();
             testEmp.name = "Test Name";
             testEmp.id = 2;
             testEmp.email = "test@fakeEmail.com";
@@ -54,7 +54,7 @@ describe("Employee", () => {
         it("should return 'Engineer' with the getRole method", () => {
             const expected = "Engineer";
 
-            const testEmp = new classes.Engineer();
+            const testEmp = new Engineer();
 
             expect(testEmp.getRole()).toEqual(expected);
         })
