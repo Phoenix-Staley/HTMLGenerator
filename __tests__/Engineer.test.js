@@ -1,4 +1,4 @@
-const classes = require("../lib/classes");
+const classes = require("../lib/employee");
 
 describe("Employee", () => {
     describe("Has default properties", () => {
