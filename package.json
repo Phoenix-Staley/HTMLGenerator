@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/Phoenix-Staley/HTMLGenerator#readme",
   "dependencies": {
+    "fs": "^0.0.1-security",
     "inquirer": "^8.2.3"
   },
   "devDependencies": {
