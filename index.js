@@ -41,15 +41,16 @@ function generateHTML() {
         ${template.titleFront}${employee.getRole()}${template.titleEnd}
         ${template.titleFront}${employee.getName()}${template.titleEnd}
         ${template.headerEnd}
-        <h4>ID: ${employee.getId()}</h4>
-        <h4>Email: <a href="mailto:${employee.getEmail()}">${employee.getEmail()}</a></h4>`;
+                    <h4>ID: ${employee.getId()}</h4>
+                    <h4>Email: <a href="mailto:${employee.getEmail()}">${employee.getEmail()}</a></h4>
+                `;
 
         if (employee.getRole() === "Engineer") {
-            html += `<h4>Github: <a href="https://github.com/${employee.getGithub()}">${employee.getGithub()}</h4>`;
+            html += `    <h4>Github: <a href="https://github.com/${employee.getGithub()}">${employee.getGithub()}</h4>`;
         } else if (employee.getRole() === "Intern") {
-            html += `<h4>School: ${employee.getSchool()}</h4>`;
+            html += `    <h4>School: ${employee.getSchool()}</h4>`;
         } else if (employee.getRole() === "Manager") {
-            html += `<h4>Office: #${employee.getOffice()}</h4>`
+            html += `    <h4>Office: #${employee.getOffice()}</h4>`
         }
 
         html += template.cardEnd;
