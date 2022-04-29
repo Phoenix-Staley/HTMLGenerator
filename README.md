@@ -1,10 +1,37 @@
-# HTML Generator
+# HTML Generator - Team Viewer
   [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-  
+
   ## Description
 
-  This program uses node.js and the inquirer node module to take inputs from a user about employee information and the style of webpage the user wants. It then takes this information and generates an HTML file that displays this information in an easy to view format. This project was created as a homework assignment for the web development / JavaScript bootcamp by the University of Washington.
+  This application uses node.js, inquirer, jest, and bulma to create an easy, simple user experience in a command prompt. It asks the user questions about their team, and creates an HTML file to easily display the team's information. To make sure the user can add as many employees as their team has, this program uses a small amount of recursion. To ensure all functions happen in the correct order, even with the variability in user response time, this program utilizes promises to create asyncronous functions.
   
+  ## Table of contents
+  
+  1. [Installation](#installation)
+  2. [Usage](#usage)
+  3. [Tests](#tests)
+  4. [Contribution](#contribution)
+  5. [License](#license)
+  6. [Questions](#questions)
+  
+  ## Installation
+  
+  To install this service, clone the Github repository at https://github.com/Phoenix-Staley/HTMLGenerator to your local machine. After this, install all the program's dependencies using `npm i` in the HTMLGenerator directory. To use this service, you must have Node.js version 16.0 or later installed. 
+  
+  ## Usage
+  
+  You must then open a terminal in the HTMLGenerator directory and run the command `npm i` to install all the dependencies. The video below demonstrates how to use this program after you have it fully installed.
+
+  [![IMAGE_ALT](https://img.youtube.com/vi/Z6g8OwIOR6k/0.jpg)](https://youtu.be/Z6g8OwIOR6k)
+  
+  ## Tests
+  
+  To run the tests for this program, open a terminal and navigate to the HTMLGenerator directory. After this, simply run `npm run test`. These tests make sure all the classes are declared and functioning properly.
+  
+  ## Contribution
+  
+  If you would like to contribute, please contact me. My contact information is in the [Questions](#questions) section of this README.
+
   ## License
 
   Copyright (c) 2022 Phoenix Staley
@@ -27,3 +54,8 @@
       LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
       OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
       WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+  
+  ## Questions
+  
+  If you have a question or want to report a bug, you can email the developers [here](mailto:PhoenixStaley_Developer@outlook.com).
+  This code was created by Phoenix Staley. To see more work by them, check out their [Github profile](https://github.com/Phoenix-Staley).
