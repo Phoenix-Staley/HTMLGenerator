@@ -45,7 +45,6 @@ function generateHTML() {
         <h4>Email: <a href="mailto:${employee.getEmail()}">${employee.getEmail()}</a></h4>`;
 
         if (employee.getRole() === "Engineer") {
-            console.log("ENGINEER!!!");
             html += `<h4>Github: <a href="https://github.com/${employee.getGithub()}">${employee.getGithub()}</h4>`;
         } else if (employee.getRole() === "Intern") {
             html += `<h4>School: ${employee.getSchool()}</h4>`;
