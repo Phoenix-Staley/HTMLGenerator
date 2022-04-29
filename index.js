@@ -1,5 +1,7 @@
 const inquirer = require("inquirer");
-const templateHTML = require("./src/template");
+const fs = require("fs");
+const template = require("./src/template");
+const questions = require("./src/questions");
 const [Employee, Engineer, Intern, Manager] = [require("./lib/employee"), require("./lib/engineer"), require("./lib/intern"), require("./lib/manager")];
 
 const keepGoing = [{
@@ -15,32 +17,93 @@ const typeOfEmp = [{
     name: "empType"
 }];
 
+// An active list of all employees
 const employees = [];
 
-function promptAgain(cb) {
+// Ask the user if they want to add more employees
+function promptAgain(cb, finish) {
     inquirer.prompt(keepGoing).then((response) => {
         if (response.willContinue === "Yes") {
             cb();
+        } else {
+            finish();
+            console.log("Your HTML file is ready!");
         }
     });
 }
 
+function generateHTML() {
+    let html = ``;
+    html += template.front;
+    employees.forEach((employee) => {
+        html += `${template.cardFront}
+        ${template.titleFront}${employee.getRole()}${template.titleEnd}
+        ${template.titleFront}${employee.name}${template.titleEnd}
+        ${template.headerEnd}
+        <h4>ID: ${employee.id}</h4>
+        <h4>Email: <a href="mailto:${employee.email}">${employee.email}</a></h4>`;
+
+        // html += template.cardFront;
+        // html += template.titleFront;
+        // html += employee.name;
+        // html += template.titleEnd;
+        // html += `
+        // <h4>${employee.getRole()}<h4>`;
+        // html += template.headerEnd;
+        // html += `<h4>ID: ${employee.id}</h4>
+        // <h4>Email: <a href="mailto:${employee.email}">${employee.email}</a></h4>`;
+
+        if (employee.getRole() === "Engineer") {
+            html += `<h4>Github: <a href="https://github.com/${employee.github}">${employee.github}</h4>`;
+        } else if (employee.getRole() === "Intern") {
+            html += `<h4>School: ${employee.school}</h4>`;
+        } else if (employee.getRole() === "Manager") {
+            html += `<h4>Office: #${employee.officeNum}</h4>`
+        }
+
+        html += template.cardEnd;
+    });
+    html += template.tail;
+
+    fs.writeFileSync("./dist/myTeam.html", html);
+}
+
+// Asks the questions, and repeats until the user has input all employees
 function getEmpInfo() {
     inquirer.prompt(typeOfEmp)
     .then((response) => {
-        if (response.empType === "Engineer") {
-            const engineer = new Engineer();
-            engineer.getName()
-                .then(engineer.getId()
-                .then(engineer.getEmail()
-                .then(engineer.getGithub()
-                .then(() => {
+        return new Promise((resolve, reject) => {
+            if (response.empType === "Engineer") {
+                inquirer.prompt(questions.engQuestions)
+                .then((answers) => {
+                    const engineer = new Engineer(answers.empName, answers.idNum, answers.email, answers.github);
                     employees.push(engineer);
-                    promptAgain(getEmpInfo);
-                })
-                )));
-        }
+                    resolve();
+                });
+            } else if (response.empType === "Intern") {
+                inquirer.prompt(questions.intQuestions)
+                .then((answers) => {
+                    const intern = new Intern(answers.empName, answers.idNum, answers.email, answers.school);
+                    employees.push(intern);
+                    resolve();
+                });
+            } else if (response.empType === "Manager") {
+                inquirer.prompt(questions.mangQuestions)
+                .then((answers) => {
+                    const manager = new Manager(answers.empName, answers.idNum, answers.email, answers.officeNum);
+                    employees.push(manager);
+                    resolve();
+                });
+            } else {
+                reject();
+            }
+        })
     })
+    .then(response => {
+        console.log();
+        promptAgain(getEmpInfo, generateHTML);
+    })
+    .catch((err) => console.error(err));
 }
 
 getEmpInfo();
