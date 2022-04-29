@@ -4,6 +4,8 @@
   ## Description
 
   This application uses node.js, inquirer, jest, and bulma to create an easy, simple user experience in a command prompt. It asks the user questions about their team, and creates an HTML file to easily display the team's information. To make sure the user can add as many employees as their team has, this program uses a small amount of recursion. To ensure all functions happen in the correct order, even with the variability in user response time, this program utilizes promises to create asyncronous functions.
+  The end result of this app looks like the webpage below.
+  ![Cards for various team members and their information](./Assets/example.png)
   
   ## Table of contents
   
