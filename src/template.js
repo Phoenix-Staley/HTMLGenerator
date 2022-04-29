@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+const start = `<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -12,14 +12,11 @@
     <header class="has-text-centered has-background-danger py-4">My Team</header>
     <main class="columns is-centered mt-6">
         <section class="columns column is-three-fifths is-centered is-flex-direction-row is-flex-wrap-wrap">
-            <div class="card column is-one-quarter m-4">
-                <header class="card-header has-background-danger">
-                  <p class="card-header-title has-text-danger-light">
-                    0
-                  </p>
-                </header>
-            </div>
-        </section>
+            `;
+
+const end = `        </section>
     </main>
 </body>
-</html>
+</html>`;
+
+module.exports = {start, end};
