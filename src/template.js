@@ -23,7 +23,7 @@ const cardFront = `<div class="card column is-one-third is-full-touch m-4">
 const titleFront = `<p class="card-header-title has-text-info-light">`;
 const titleEnd = `</p>`
 
-const headerEnd = `</p>
+const headerEnd = `
                 </header>
             <div class="content mt-3 px-2">
 `
