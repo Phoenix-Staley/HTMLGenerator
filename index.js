@@ -2,8 +2,9 @@ const inquirer = require("inquirer");
 const fs = require("fs");
 const template = require("./src/template");
 const questions = require("./src/questions");
-const [Employee, Engineer, Intern, Manager] = [require("./lib/employee"), require("./lib/engineer"), require("./lib/intern"), require("./lib/manager")];
+const [Engineer, Intern, Manager] = [require("./lib/engineer"), require("./lib/intern"), require("./lib/manager")];
 
+// Questions for the beginning of each iteration
 const keepGoing = [{
     type: "list",
     choices: ["Yes", "No"],
@@ -38,27 +39,18 @@ function generateHTML() {
     employees.forEach((employee) => {
         html += `${template.cardFront}
         ${template.titleFront}${employee.getRole()}${template.titleEnd}
-        ${template.titleFront}${employee.name}${template.titleEnd}
+        ${template.titleFront}${employee.getName()}${template.titleEnd}
         ${template.headerEnd}
-        <h4>ID: ${employee.id}</h4>
-        <h4>Email: <a href="mailto:${employee.email}">${employee.email}</a></h4>`;
-
-        // html += template.cardFront;
-        // html += template.titleFront;
-        // html += employee.name;
-        // html += template.titleEnd;
-        // html += `
-        // <h4>${employee.getRole()}<h4>`;
-        // html += template.headerEnd;
-        // html += `<h4>ID: ${employee.id}</h4>
-        // <h4>Email: <a href="mailto:${employee.email}">${employee.email}</a></h4>`;
+        <h4>ID: ${employee.getId()}</h4>
+        <h4>Email: <a href="mailto:${employee.getEmail()}">${employee.getEmail()}</a></h4>`;
 
         if (employee.getRole() === "Engineer") {
-            html += `<h4>Github: <a href="https://github.com/${employee.github}">${employee.github}</h4>`;
+            console.log("ENGINEER!!!");
+            html += `<h4>Github: <a href="https://github.com/${employee.getGithub()}">${employee.getGithub()}</h4>`;
         } else if (employee.getRole() === "Intern") {
-            html += `<h4>School: ${employee.school}</h4>`;
+            html += `<h4>School: ${employee.getSchool()}</h4>`;
         } else if (employee.getRole() === "Manager") {
-            html += `<h4>Office: #${employee.officeNum}</h4>`
+            html += `<h4>Office: #${employee.getOffice()}</h4>`
         }
 
         html += template.cardEnd;
@@ -106,4 +98,5 @@ function getEmpInfo() {
     .catch((err) => console.error(err));
 }
 
+// Start app
 getEmpInfo();
