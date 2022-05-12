@@ -24,7 +24,7 @@
   
   You must then open a terminal in the HTMLGenerator directory and run the command `npm i` to install all the dependencies. The video below demonstrates how to use this program after you have it fully installed.
 
-  [![IMAGE_ALT](https://img.youtube.com/vi/Z6g8OwIOR6k/0.jpg)](https://youtu.be/Z6g8OwIOR6k)
+  [![IMAGE_ALT](https://img.youtube.com/vi/IEImRg54oYk/0.jpg)](https://youtu.be/IEImRg54oYk)
   
   ## Tests
   
